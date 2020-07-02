@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+       <meta charset="utf-8">
+       <title>°Tarjeta de Felicitación°</title>
+       <link rel="stylesheet" href="css/estilo.css">
+       <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Handlee&family=Source+Serif+Pro&display=swap" rel="stylesheet">
+       <!-- agregar icono -->
+       <script>
+           function cambiarColor(codigo){
+                   switch(codigo){
+                        case 'verde':
+                            document.bgColor='33B97A';
+                        document.getElementById('verde').src='img/002-corazon.png'; 
+                            resetColor(codigo);
+                            break;
+                       case'rosa':
+                            document.bgColor='EEA492';
+                            document.getElementById('rosa').src='img/002-corazon.png';
+                            resetColor(codigo);
+                            break;
+                        case'naranja':
+                            document.bgColor='F08837';
+                            document.getElementById('naranja').src='img/002-corazon.png';
+                            resetColor(codigo);
+                            break;
+               }
+               
+           }
+           
+           
+           function resetColor(color){
+               if(color!='verde')
+                   document.getElementById('verde').src='img/images_Tarjeta/verde.jpg';
+               if(color!='rosa')
+                   document.getElementById('rosa').src='img/images_Tarjeta/rosa.jpg';
+               if(color!='naranja')
+                   document.getElementById('naranja').src='img/images_Tarjeta/naranja.jpg';
+           }
+           
+           
+           function cambiarTamanoEjemplo(){
+               var tam=document.getElementById("tamanoTxt").value;
+               //alert(tam);
+               document.getElementById("ejemploTexto").style.fontSize=tam+"em";// em unidades de medida en textos no se trabaja en pixeles los textos
+           }
+           
+           function generarTarjeta(){
+               
+               document.getElementById("tarjeta").style.display='block';
+               //revisamos el radio de la imagen que fue elegido
+               
+               var fondo;
+               if(document.getElementById("tipoImg1").checked)
+                   fondo=document.getElementById("tipoImg1").value;
+               else if(document.getElementById("tipoImg2").checked)
+                   fondo=document.getElementById("tipoImg2").value;
+               else fondo=document.getElementById("tipoImg3").value;
+               
+               //agregamos el fondo a la tarjeta
+               document.getElementById("tarjeta").style.backgroundImage="url('"+fondo+"')";
+               document.getElementById("tarjeta").style.backgroundRepeat="no-repeat";
+               
+               
+               
+               
+               
+               //insertar textos
+               var titu=document.getElementById("tituloTxt").value;
+               document.getElementById("titulo").innerHTML=titu;
+               
+               //color de texto
+               var c=document.getElementById("colorTxt").value;
+               document.getElementById("titulo").style.color=c;
+               //tamaño del texto
+                var tam=document.getElementById("tamanoTxt").value;
+               document.getElementById("titulo").style.fontSize=tam+"em";
+               
+               //asignar la tipografía
+                var tipo;
+               if(document.getElementById("tipoTxt1").checked)
+                   tipo=document.getElementById("tipoTxt1").value;
+               else if(document.getElementById("tipoTxt2").checked)
+                   tipo=document.getElementById("tipoTxt2").value;
+               else tipo=document.getElementById("tipoTxt3").value;
+               
+              document.getElementById("descripcion").style.fontFamily=tipo;
+               
+               
+               
+               
+               
+               var subtitulo=document.getElementById("subtituloTxt").value;
+               document.getElementById("subtitulo").innerHTML=subtitulo;
+               
+                var sub=document.getElementById("subtituloTxt").value;
+               document.getElementById("subtitulo").innerHTML=sub;
+               
+                var a=document.getElementById("colorTxt").value;
+               document.getElementById("subtitulo").style.color=a;
+               //validar cuel es la tipografia seleccionada el valor
+               
+               var tipo;
+               if(document.getElementById("tipoTxt1").checked)
+                   tipo=document.getElementById("tipoTxt1").value;
+               else if(document.getElementById("tipoTxt2").checked)
+                   tipo=document.getElementById("tipoTxt2").value;
+               else tipo=document.getElementById("tipoTxt3").value;
+               //asignar la tipografía
+              document.getElementById("subtitulo").style.fontFamily=tipo;
+               
+               
+               
+               
+               
+                var des=document.getElementById("descriptionTxt").value;
+               document.getElementById("descripcion").innerHTML=des;
+               
+                var sub=document.getElementById("descriptionTxt").value;
+               document.getElementById("descripcion").innerHTML=sub;
+               
+                var d=document.getElementById("colorTxt").value;
+               document.getElementById("descripcion").style.color=d;
+               
+               
+               var tipo;
+               if(document.getElementById("tipoTxt1").checked)
+                   tipo=document.getElementById("tipoTxt1").value;
+               else if(document.getElementById("tipoTxt2").checked)
+                   tipo=document.getElementById("tipoTxt2").value;
+               else tipo=document.getElementById("tipoTxt3").value;
+               
+               //asignar la tipografía
+              document.getElementById("descripcion").style.fontFamily=tipo;
+               
+               
+               
+               
+               
+               
+               
+               var autor=document.getElementById("autorTxt").value;
+               document.getElementById("autor").innerHTML=autor;
+               
+                var sub=document.getElementById("autorTxt").value;
+               document.getElementById("autor").innerHTML=sub;
+               
+                var a=document.getElementById("colorTxt").value;
+               document.getElementById("autor").style.color=a;
+               
+               
+               var tipo;
+               if(document.getElementById("tipoTxt1").checked)
+                   tipo=document.getElementById("tipoTxt1").value;
+               else if(document.getElementById("tipoTxt2").checked)
+                   tipo=document.getElementById("tipoTxt2").value;
+               else tipo=document.getElementById("tipoTxt3").value;
+               
+               //asignar la tipografía
+              document.getElementById("autor").style.fontFamily=tipo;
+               
+               
+               //ocultar zona de configuracion
+               document.getElementById("contenido").style.display='none';
+           }
+       
+       </script>
+    </head>
+    <body id="b">
+       <h1 id="TITULO">-Tarjetas de invitacion-</h1>
+       <p id="TITULO">Para cambiar el color de fondo mover el color sobre la imagen</p>
+       
+       <a onmouseover="cambiarColor('verde');" href="">
+           <img id="verde" src="img/images_Tarjeta/verde.jpg" height="40" width="40">
+       </a>
+        <a onmouseover="cambiarColor('rosa');" href="">
+           <img id="rosa" src="img/images_Tarjeta/rosa.jpg" height="40" width="40">
+       </a>
+       <a onmouseover="cambiarColor('naranja');" href="">
+           <img id="naranja" src="img/images_Tarjeta/naranja.jpg" height="40" width="40">
+       </a>
+       <article id="contenido">
+          <h1>Creando una tarjeta</h1>
+          <h2>Elige una imagen</h2>
+                  <input type="radio" name="tipoImg" id="tipoImg1" checked value="img/images_Tarjeta/tarjetafelicitacion1.jpg">
+                  <img src="img/images_Tarjeta/tarjetafelicitacion1.jpg" height="150" width="150">
+                  <input type="radio" name="tipoImg" id="tipoImg2" checked value="img/images_Tarjeta/tarjetafelicitacion2.jpg">
+                  <img src="img/images_Tarjeta/tarjetafelicitacion2.jpg" height="150" width="150">
+                  <input type="radio" name="tipoImg" id="tipoImg3" checked value="img/images_Tarjeta/Graduacion3.jpg">
+                  <img src="img/images_Tarjeta/Graduacion3.jpg" height="150" width="150">
+          <h2>Agrega un titulo</h2>
+          <input type="text" id="tituloTxt">
+          <h2>Agrega un subtitulo</h2>
+          <input type="text" id="subtituloTxt">
+          <h2>Agrega una descripcion</h2>
+          <textarea id="descriptionTxt"  cols="30" rows="5"></textarea>
+          <h3></h3>
+          <h2>Quién escribe la tarjeta</h2>
+          <input type="text" id="autorTxt">
+          <h2>Formato de texto</h2>
+          <label id="estilo" for="colorTxt">Color:</label>
+          <input type="color" id="colorTxt"><br>
+          <br>
+          <label id="estilo" for="colorTxt" >Tamaño de letra:</label>
+          <input type="range" id="tamanoTxt" min="1" max="5" onchange="cambiarTamanoEjemplo()"><br>
+          <br>
+          <label id="ejemploTexto">Ejemplo</label><br>
+          <br>
+          <label id="estilo">Tipografía:</label><br>
+          <input type="radio" name="tipoTxt" id="tipoTxt1" checked value="Bangers">
+          <label id="tipo1">Bangers</label>
+           <input type="radio" name="tipoTxt" id="tipoTxt2" value="Handlee">
+          <label id="tipo2">Handlee</label>
+           <input type="radio" name="tipoTxt" id="tipoTxt3" value="Source Serif Pro">
+          <label id="tipo3">Source Serif Pro</label>
+          <br>
+          <img src="img/images_Tarjeta/crear.png" onclick="generarTarjeta()">
+          <br>
+           
+       </article>
+       
+       
+       <article id="tarjeta">
+           <h1 id="titulo"></h1>
+           <h2 id="subtitulo"></h2>
+           <h2 id="descripcion"></h2>
+           <h2 id="autor"></h2>
+           
+       </article>
+       
+       
+    </body>
+</html>  
